@@ -4,7 +4,6 @@
     <div>
         <div class="row">
             <div class="col-md-4">
-                <input type="button" class="btn btn-primary" value="Get Pokemon" onclick="getPokemon();" style="width=100%"/>
                 <label>Pokemon</label>
                 <select id="lstPokemon" size="6" onchange="pokemonSelected()" style="width:100%"></select>
             </div>
@@ -47,7 +46,7 @@
                 success: function (data, status) {
                     $.each(data, function (key, item) {
                         $('<option>', {
-                            text: item.Name, id: item.Id }).appendTo('lstPokemon');
+                            text: item.Name, id: item.Id }).appendTo('#lstPokemon');
                     })
                 },
                 error: function (jqXHR, errorThrown) { alert(jqXHR.status) },
@@ -71,7 +70,7 @@
                     var imageSource = data.sprites.front_default
                     $('#imgPokemon').attr('src', imageSource);
 
-                    $.each(data.types.type, function (key, item) {
+                    $.each(data.data.types.type, function (key, item) {
                         $('<li>', { text: item.name }).appendTo('#lstType');
                         var typeUrl = $({ text: item.url });
                         $.ajax(
