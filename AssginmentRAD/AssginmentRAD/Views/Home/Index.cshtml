@@ -89,10 +89,19 @@
                                     }),
                                     $.each(data.damage_relations.double_damage_from, function (key, item) {
                                         $('<li>', { text: item.name }).appendTo('#lstWeak');
+                                    }),
+                                    $.each(data.damage_relations.no_damage_from, function (key, item) {
+                                        $('<li>', { text: item.name }).appendTo('#lstStrong');
+                                    }),
+                                    $.each(data.damage_relations.double_damage_to, function (key, item) {
+                                        $('<li>', { text: item.name }).appendTo('#lstStrong');
+                                    }),
+                                    $.each(data.damage_relations.half_damage_from, function (key, item) {
+                                        $('<li>', { text: item.name }).appendTo('#lstStrong');
                                     })
                                 },
+                                error: function (jqXHR, errorThrown) { alert(jqXHR.status) },
                             });
-
                     });
                 },
                 error: function (jqXHR, errorThrown) { alert(jqXHR.status) },
