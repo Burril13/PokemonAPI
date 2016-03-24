@@ -70,9 +70,10 @@
                     var imageSource = data.sprites.front_default
                     $('#imgPokemon').attr('src', imageSource);
 
-                    $.each(data.data.types.type, function (key, item) {
-                        $('<li>', { text: item.name }).appendTo('#lstType');
-                        var typeUrl = $({ text: item.url });
+                    $.each(data.types, function (key, item) {
+                        $('<li>', { text: item.type.name }).appendTo('#lstType');
+                        var typeUrl = $({ text: item.type.url });
+
                         $.ajax(
                             {
                                 type: 'GET',
